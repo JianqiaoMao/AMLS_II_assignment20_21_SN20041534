@@ -10,4 +10,4 @@ The experiment results indicate that the proposed FD-SRCNN is able to achieve pr
 
 #### Performance Comparisons on DIV2K Validation Set
 
-<div align=center><img src=https://github.com/JianqiaoMao/AMLS_II_assignment20_21_SN20041534/blob/main/demo/performance_table.png width=600 /></div>
+<div align=center><img src=https://github.com/JianqiaoMao/AMLS_II_assignment20_21_SN20041534/blob/main/demo/performance_table.png width=1000 /></div>
