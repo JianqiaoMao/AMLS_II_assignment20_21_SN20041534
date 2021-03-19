@@ -22,3 +22,9 @@ In this way, the proposed model is able to deal with multiple scale factors, whe
 
 <div align=center><img src=https://github.com/JianqiaoMao/AMLS_II_assignment20_21_SN20041534/blob/main/demo/FD-SRCNN.png width=1000 /></div>
 
+### Demonstration
+
+Figure below compares the SR results of the chosen image from DIV2K using bicubic interpolation, original SRCNN, IUD-SRCNN, and the proposed FD-SRCNN. It can be observed that the final optimized FD-SRCNN have promising performance under all scales (X2, X3, X4) of the challenging unknown degradation factor. Especially under the higher scale unknown factor where the low-resolution image has been seriously blurred, the proposed FD-SRCNN can predict the almost realistic details and reconstruct a high-quality image.
+
+<div align=center><img src=https://github.com/JianqiaoMao/AMLS_II_assignment20_21_SN20041534/blob/main/demo/SR%20results_word.png width=1000 /></div>
+
