@@ -53,6 +53,10 @@ The whole project is developed in Python3.6. Please note that using other Python
   
 Note that the FD-SRCNN are implemented based on tensorflow-gpu version, while it is uncertain for its compatibility in the basic tensorflow module. Conflict may happen if you install both of the two package within the same virtual environment, since base tensorflow is the default option to be imported. Some other dependent packages may be required, so you may need to install the missing packages as required.
 
+#### Training Details
+
+The **FD-SRCNN** is trained on 4 Nvidia 32gB Tesla V100 GPUs with 2 Intel® Xeon(R) Gold 6248 CPU at 2.50GHz. It is shown that though the model is very deep, the training process only takes around 10 hours for 50 epochs of training and validating on the GPUs using data-paralleled strategy. It is observed from the experiment that more training epochs may further improve the model performance, while this work is limited by objective resources.
+
 #### Tips
 
 The validation and testing use original full images, whereas the cropped patches are used for training. So it is recommended to build the dirs to store the original DIV2K dataset under "/Datasets/original_dataset/<factor>/<scale>/", where <factor> should be either **bicubic** or **unknown**. For HR images, store it under "/Datasets/original_dataset/HR/". If you want to train the model by yourself, the data preprocessing cell has to be run to produce the cropped pathces used in training phase. You are not required to create the dirs for processed patches, they will be automatically created under the given the root path, e.g. "/Datasets/processed_ds/training/...". Note that the data reading works in relative directory, try to excute **main.py** in the directory where it locates.
