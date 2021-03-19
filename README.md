@@ -8,11 +8,11 @@ This report (project) mainly focuses on dealing with [NTIRE 2017 challenge](http
 
 The experiment results indicate that the proposed FD-SRCNN is able to achieve promising results in terms of PSNR and SSIM metrics with both the standard bicubic and complex unknown degradation factors under different scales specified by the challenge. Furthermore, it is found that the FD-SRCNN outperforms more significantly than the other comparable SR techniques for the more challenging unknown degradation factor.
 
-#### Performance Comparisons on DIV2K Validation Set
+### Performance Comparisons on DIV2K Validation Set
 
 <div align=center><img src=https://github.com/JianqiaoMao/AMLS_II_assignment20_21_SN20041534/blob/main/demo/performance_table.png width=1000 /></div>
 
-#### FD-SRCNN
+### FD-SRCNN
 
 The proposed FD-SRCNN consists of two upscaling modules containing functional blocks, extra neural network layers and local/global shortcut connections. Given an input low-resolution image, a convolutional layer and a ReLU activation layer perform as the input layer to preprocess the image into 32 feature maps by 9x9 convolutional kernels. Afterwards, the preprocessed feature maps are upsampled progressively with multi-stage upscaling modules.
 
