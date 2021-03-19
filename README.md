@@ -46,19 +46,15 @@ Figure below compares the SR results of the chosen image from DIV2K using bicubi
 
 The whole project is developed in Python3.6. Please note that using other Python versions may lead to unknown errors. Required libraries are shown below, where the recommended package versions are also demonstrated:
 
-  * numpy 1.19.1
-  * pandas 1.1.3
-  * dlib 19.21.0
+  * numpy 1.19.2
   * opencv-python 4.4.0.46
-  * seaborn 0.11.0
-  * matplotlib 3.3.2
-  * scikit-learn 0.23.2
-  * keras 2.4.3
   * tensorflow-gpu 2.3.1 / Alternative: tensorflow (latest version)
+  * keras 2.4.3
   
-Note that the CNN models are built by tensorflow-gpu version, while it is uncertain for its compatibility in the basic tensorflow module. Conflict may happen if you have both of the two package, since base tensorflow is the default to be imported. Some other dependent libraries may be required to apply **face_recognition** module, if meet errors, please check [here](https://github.com/ageitgey/face_recognition).
+Note that the FD-SRCNN are implemented based on tensorflow-gpu version, while it is uncertain for its compatibility in the basic tensorflow module. Conflict may happen if you install both of the two package within the same virtual environment, since base tensorflow is the default option to be imported. Some other dependent packages may be required, so you may need to install the missing packages as required.
 
 #### Tips
 
-The file reading directory (for dataset loading) is tested on Windows10 (x86) using Spyder as IDE, while uncertainty can be expected for running on OS or Linux or other IDEs. If errors encountered, please modify the **pathA**, **pathB**, **pathA_addition**, **pathB_addition** variables in **main.py** at line 8-11. The data reading works on relative directory, try to excute **main.py** in the directory where it locates.
+The validation and testing use original full images, whereas the cropped patches are used for training. So it is recommended to build the dirs to store the original DIV2K dataset under "/Datasets/original_dataset/<factor>/<scale>/", where <factor> should be either **bicubic** or **unknown**.
+The data reading works in relative directory, try to excute **main.py** in the directory where it locates.
 
