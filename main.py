@@ -6,7 +6,6 @@ Created on Thu Mar 18 01:51:14 2021
 """
 #%% Configuration
 import os
-import glob
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1'
 
 ## Comment the below line if GPU(s) is(are) available
@@ -22,7 +21,7 @@ os.environ["CUDA_VISIBLE_DEVICES"]="-1"
 # tf.config.experimental.set_memory_growth(gpus[1], True) 
 # tf.config.experimental.set_memory_growth(gpus[2], True) 
 # tf.config.experimental.set_memory_growth(gpus[3], True) 
-
+import glob
 import AMLS2
 
 """
@@ -32,7 +31,7 @@ So it is recommended to build the dirs to store the original DIV2K dataset under
 , where <factor> should be either bicubic or unknown.
 For HR images, store it under "/Datasets/original_dataset/HR/"
 
-The dirs for processed patches will be automatically built under the given the root path.
+The dirs for processed patches will be automatically created under the given the root path.
 """
 
 original_img_path = r"./Datasets/original_dataset/"
@@ -56,7 +55,7 @@ for factor in factors:
     for scale in scales:
         if not os.path.exists(train_patch_path+'/'+factor+"/"+scale):
             os.makedirs(train_patch_path+'/'+factor+"/"+scale) 
-#%% Data Processing
+#%% Data Preprocessing
 """
 If need to train the model by yourself, 
 this chunck of code should be run at first to generate patches from the original image.
@@ -75,7 +74,7 @@ for factor in factors:
 
 """
 For Track 1, the code follows a completed process of loading dataset, 
-initializing the model, training and evaluating the model for only demo.
+initializing the model, training and evaluating the model for demo.
 purpose.
 
 While for the Track 2, the code loads the pretrained models, skipping training
@@ -124,8 +123,8 @@ for scale in scales:
 #%% Track 2: Unknown Degradation Factor
 
 """
-Track 2, the code loads the pretrained models, skipping training
-process which is very time-consuming.
+Track 2, the code loads the pretrained models, 
+skipping training phase which is very time-consuming.
 """
 
 factor ="unknown"
