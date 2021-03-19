@@ -55,6 +55,6 @@ Note that the FD-SRCNN are implemented based on tensorflow-gpu version, while it
 
 #### Tips
 
-The validation and testing use original full images, whereas the cropped patches are used for training. So it is recommended to build the dirs to store the original DIV2K dataset under "/Datasets/original_dataset/<factor>/<scale>/", where <factor> should be either **bicubic** or **unknown**.
-The data reading works in relative directory, try to excute **main.py** in the directory where it locates.
+The validation and testing use original full images, whereas the cropped patches are used for training. So it is recommended to build the dirs to store the original DIV2K dataset under "/Datasets/original_dataset/<factor>/<scale>/", where <factor> should be either **bicubic** or **unknown**. For HR images, store it under "/Datasets/original_dataset/HR/". If you want to train the model by yourself, the data preprocessing cell has to be run to produce the cropped pathces used in training phase. You are not required to create the dirs for processed patches, they will be automatically created under the given the root path, e.g. "/Datasets/processed_ds/training/...". Note that the data reading works in relative directory, try to excute **main.py** in the directory where it locates.
 
+The **main.py** demonstrates track 1 with a completed process of loading dataset, initializing the model, training and evaluating the model, while only 1,000 out of 149,787 patches are used in the training phase to save time in the demo. For track 2, the code loads the pretrained models, skipping training phase which is very time-consuming.
