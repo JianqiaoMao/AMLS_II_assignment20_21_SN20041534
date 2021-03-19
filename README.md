@@ -11,3 +11,14 @@ The experiment results indicate that the proposed FD-SRCNN is able to achieve pr
 #### Performance Comparisons on DIV2K Validation Set
 
 <div align=center><img src=https://github.com/JianqiaoMao/AMLS_II_assignment20_21_SN20041534/blob/main/demo/performance_table.png width=1000 /></div>
+
+#### FD-SRCNN
+
+The proposed FD-SRCNN consists of two upscaling modules containing functional blocks, extra neural network layers and local/global shortcut connections. Given an input low-resolution image, a convolutional layer and a ReLU activation layer perform as the input layer to preprocess the image into 32 feature maps by 9x9 convolutional kernels. Afterwards, the preprocessed feature maps are upsampled progressively with multi-stage upscaling modules.
+
+Each upscaling module has three iterative up-and-down sampling block series, and each block series is a serial connection of three functional blocks: The convolutional block aims to deepen and widen the network, extracting abundant feature maps; The transposed-convolution-based upsampler is designed to adaptively learn appropriate upsampling kernels; The reconstructor makes its effort to estimate a high-quality super-resolution image, where the Sigmoid activation layer is stacked after the 3-channel convolutional layer to approach the realistic high-resolution image. Within an upscaling module, the iterative up-and-down sampling strategy is implemented by alternately using a transposed convolutional layer for upsampling and a maxpooling layer for downsampling. Since there is no downsampling layer after the last block series, the output of the upscaling module is a well-upscaled version of its input image. Furthermore, to fast the model converging speed and improve SR performance, shortcut connections are carefully placed amongst local block series and global modules. 
+
+In this way, the proposed model is able to deal with multiple scale factors, where X2 and X3 scale super-resolution image are output at the end of the first upscaling module and the X4 scale super-resolution image is produced by the followed upscaling module.
+
+<div align=center><img src=https://github.com/JianqiaoMao/AMLS_II_assignment20_21_SN20041534/blob/main/demo/FD-SRCNN.png width=1000 /></div>
+
